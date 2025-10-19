@@ -1,4 +1,9 @@
 ## Никита Малютин
+
+### О себе:
+Никита Малютин хочу научиться во фронтенд. Лучше разбираться в этом деле и развиваться дальше. 
+
+### Использовал GitHub Desctop
 # Frontend Development Course
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
