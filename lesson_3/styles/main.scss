@@ -27,12 +27,17 @@
   h2{
     font-size: 1.5rem;
   }
+  h3{
+    font-size: 2rem;
+  }
   img{
     width: 100%;
+    border-radius: 5%;
   }
   ul{
     list-style: none;
     text-decoration: none;
+    color: $alt-color;
   }
   a{
     text-decoration: none;
@@ -45,6 +50,21 @@
     width: 4rem;
     margin: 20px auto;
   }
+  span{
+    color: $text-main-color;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    margin-right: 8px;
+    font-size: 1.5em;
+  }
+  p{
+    color: $alt-color;
+  }
+  label{
+    color: $alt-color;
+  }
+
 
 
 .hero-section{
@@ -120,8 +140,13 @@ main{
   background-color: $altbackground-color;
 
 }
+.base-section--black-background{
+  background-color: $background-color;
+}
+
 .base-section{
-  padding-top: 3%;
+  padding-top: 4%;
+  padding-bottom: 4%;
   padding-inline: var(--_offset);
   display: grid;
   grid-template-columns: repeat(12, 1fr) ;
@@ -130,7 +155,7 @@ main{
     grid-column: 2/6;
     justify-self: center;
     align-self: center;
-    min-height: 80%;
+    min-height: 80vh;
     min-width: 60%;
     max-width: 460px;
 
@@ -138,7 +163,6 @@ main{
 
     &__image{
       border-radius: 5%;
-
     }
   }
   &__right-container{
@@ -147,6 +171,7 @@ main{
     grid-row: 1;
     &__p{
       padding-right: 10%;
+      padding-top: 2%;
     }
     &__h2{
       font-size: 3rem;
@@ -163,9 +188,162 @@ main{
     &__list{
       display: grid;
       grid-template-columns: repeat(3, 1fr) ;
-      padding-left: 0px;
+      padding: 0 30% 30% 0;
+      grid-row-gap: 2rem;
+      grid-column-gap: 1rem;
+      &__item{
+
+        height: 50px;
+        &__h3{
+          font-size: 1rem;
+          align-self: center;
+          span{
+            text-align: right;
+          }
+        }
+      }
     }
 
   }
 
+  .base-section__middle-container{
+    height: 80vh;
+    display: grid;
+    grid-column: 1/-1;
+    grid-template-rows: 1fr 2fr 1fr ;
+    grid-template-columns: subgrid;
+    &__h2{
+      grid-column: 6/8;
+      align-self: center;
+      text-align: center;
+      color: $alt-color;
+    }
+    &__left-container{
+      grid-row: 2;
+      grid-column: 4/7;
+      padding-right: 16%;
+
+    }
+    &__right-container{
+      grid-row: 2;
+      grid-column: 7/10;
+      padding-left: 16%;
+      margin-top: 2rem;
+      grid-template-rows: 1fr 1fr 1fr;
+      button{
+        min-height: 2.5rem;
+        min-width: 8rem;
+        justify-self: end;
+        color:black;
+        background-color: $text-main-color;
+        border-radius: 15%;
+        margin-left: 60%;
+        margin-top: 2rem;
+        font-family: "Comfortaa", "Balsamiq Sans", "Ribeye", sans-serif;
+        border-color: #FFB800;
+        padding: 0;
+      }
+
+      &__input-holder{
+        display: grid;
+        padding: 0.5rem;
+        grid-template-columns: 1fr;
+        grid-column-gap: 1rem;
+        &__label{
+          padding-bottom: 0.5rem;
+
+        }
+        &__input{
+          min-height: 3rem;
+          background-color: $altbackground-color;
+          border-bottom-color: $altbackground-color;
+          border:0;
+          border-radius: 0.5rem;
+          &--extended{
+            min-height: 8rem;
+          }
+        }
+      }
+    }
+    &__cardholder{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row: 2;
+      height: 130%;
+      grid-column: 3/11;
+      grid-row-gap: 25%;
+      grid-column-gap: 1rem;
+
+      &__card{
+        padding: 2rem;
+        border-radius: 8%;
+        background-color: $background-color;
+        margin-bottom: 10%;
+        display: flex;
+        flex-direction: column;
+        &__text{
+          height: 100%;
+        }
+        &__link{
+          padding: 2rem;
+          color: $text-main-color;
+          align-self: center;
+        }
+      }
+
+
+    }
+
+    &__container{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-row: 2;
+      grid-column: 3/11;
+      padding-top: 5%;
+      grid-row-gap: 25%;
+      grid-column-gap: 1rem;
+      &__image{
+        width: 100%;
+      }
+    }
+  }
+
+}
+.footer-section{
+  color: black;
+  min-height: 200px;
+  background-color: #FFB800;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  &__content{
+    color: black;
+    grid-column: 2;
+    align-items: center;
+    place-items: center;
+    &__title{
+      padding-bottom: 2%;
+      padding-top: 2%;
+    }
+    &__text{
+      padding-top: 2%;
+      color: black;
+      padding-inline: 0;
+    }
+    &__nav{
+
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 5%;
+      font-size: 1rem;
+      &__list{
+        color: black;
+        padding-left: 0;
+      }
+    }
+
+
+  }
 }
