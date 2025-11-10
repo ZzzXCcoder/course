@@ -326,4 +326,63 @@ main {
   padding-left: 0;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.hero-section__intro__img {
+  animation: float 4s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+.hero-section__intro__img:hover {
+  transform: scale(1.05);
+}
+
+.hero-section__intro__h1,
+.hero-section__intro__h2 {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.base-section__left-container,
+.base-section__right-container,
+.base-section__middle-container__h2,
+.base-section__middle-container__container,
+.base-section__middle-container__cardholder {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.base-section__middle-container__container img,
+.base-section__middle-container__cardholder__card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.base-section__middle-container__container img:hover,
+.base-section__middle-container__cardholder__card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
+}
+
 /*# sourceMappingURL=main.css.map */
