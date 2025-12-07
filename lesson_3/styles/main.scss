@@ -2,10 +2,17 @@
   $altbackground-color: #252525;
   $alt-color: #FFFFFF;
   $text-main-color: #FFB800;
+  $offset: 128px;
+  $columns: 12;
+
+  @mixin grid-columns($columns, $offset) {
+    grid-template-columns: repeat($columns, 1fr);
+    padding-inline: $offset;
+  }
+
   @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@300..700&family=Ribeye&display=swap');
   :root {
-    --_offset:128px;
-    --_columns: 12;
+
   }
   html{
     font-size: clamp(8px, 0.8vw, 18px);
@@ -70,25 +77,29 @@
 .hero-section{
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(12, 1fr) ;
-  padding-inline: var(--_offset);
+  @include grid-columns(12, 128px);
 }
-.hero-section__navbar{
-  grid-column: 8/-1;
-  grid-row: 1;
+  .hero-section__navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
 
+    width: 100%;
+    z-index: 3000;
 
-}
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    background-color: rgba(2, 2, 2, 0.5);
+    backdrop-filter: blur(1px);
+  }
+
 .navbar__menu{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 26px 28px 0 0;
-  position: sticky;
-  top: 0;
-  grid-column: 8/-1;
-  grid-row: 1;
-  z-index: 1000;
+  gap: 2rem;
+  margin-right: $offset;
+
 
   &-item{
     min-width: 80px;
@@ -104,7 +115,7 @@
     }
     &--active{
       a{
-        padding-bottom: 4px;
+        padding-bottom: 0.5rem;
       }
     }
 
@@ -149,7 +160,7 @@ main{
   padding-bottom: 4%;
   padding-inline: var(--_offset);
   display: grid;
-  grid-template-columns: repeat(12, 1fr) ;
+  @include grid-columns(12, 128px);;
 
   &__left-container{
     grid-column: 2/6;
@@ -347,3 +358,90 @@ main{
 
   }
 }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .hero-section__intro__img {
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    &:hover { transform: scale(1.05); }
+  }
+
+  .hero-section__intro__h1,
+  .hero-section__intro__h2 {
+    animation: fadeIn 1.5s ease forwards;
+  }
+
+  .base-section__left-container,
+  .base-section__right-container,
+  .base-section__middle-container__h2,
+  .base-section__middle-container__container,
+  .base-section__middle-container__cardholder {
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  .base-section__middle-container__container img,
+  .base-section__middle-container__cardholder__card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    &:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 15px rgba(255, 184, 0, 0.4);
+    }
+  }
+  .hero-section__intro__h1--orange{
+    color: $text-main-color;
+  }
+  @media (max-width: 1023px) {
+    h1{
+      font-size: 4rem;
+    }
+    h2{
+      font-size: 2rem;
+    }
+    .hero-section,
+    .base-section {
+      @include grid-columns(6, 48px);
+    }
+    .navbar__menu{
+      margin-right: 5%;
+      font-size: 1.5rem;
+    }
+    .hero-section__intro{
+      grid-column: 3/5;
+    }
+    .base-section__left-container{
+      grid-column: 1 / 4;
+    }
+    .base-section__right-container{
+      grid-column: 4 / -1;
+      font-size: 2rem;
+
+    }
+    .base-section__right-container__list{
+      padding: 0;
+
+    }
+    .base-section__right-container__list__item__h3{
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .hero-section,
+    .base-section {
+      @include grid-columns(4, 24px);
+    }
+  }
+
