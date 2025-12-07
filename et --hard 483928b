@@ -1,0 +1,23 @@
+[33m2039f4d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: commit (merge): Адаптивочка
+[33m483928b[m HEAD@{1}: commit: adding adabtiвку
+[33macb80ea[m HEAD@{2}: reset: moving to acb80ea
+[33mac99540[m HEAD@{3}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33m0ffac33[m HEAD@{4}: commit: add animations
+[33macb80ea[m HEAD@{5}: reset: moving to acb80ea
+[33macb80ea[m HEAD@{6}: commit: DesctopVersion
+[33mf45312c[m HEAD@{7}: commit: 2pages
+[33m79e6a33[m HEAD@{8}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33mea68fab[m HEAD@{9}: commit: some additions)
+[33m1420e0e[m HEAD@{10}: reset: moving to 1420e0e2641be84bf640cb33116fa5f72e6a7c47
+[33m8c9f8d7[m HEAD@{11}: commit: some adds )
+[33m1420e0e[m HEAD@{12}: commit: Исправление ошибок
+[33mf726a3e[m HEAD@{13}: commit: дз2
+[33m647e142[m HEAD@{14}: pull --ff --recurse-submodules --progress origin: Fast-forward
+[33mc500b30[m HEAD@{15}: checkout: moving from Dev to main
+[33med441fc[m[33m ([m[1;31morigin/Dev[m[33m, [m[1;32mDev[m[33m)[m HEAD@{16}: reset: moving to HEAD
+[33med441fc[m[33m ([m[1;31morigin/Dev[m[33m, [m[1;32mDev[m[33m)[m HEAD@{17}: commit: docs: add Completed task 1
+[33m85dade6[m HEAD@{18}: checkout: moving from main to Dev
+[33m09dd76a[m HEAD@{19}: checkout: moving from Dev to main
+[33m85dade6[m HEAD@{20}: commit: Create .gitignore
+[33m09dd76a[m HEAD@{21}: checkout: moving from main to Dev
+[33m09dd76a[m HEAD@{22}: clone: from https://github.com/ZzzXCcoder/course.git
