@@ -54,3 +54,4 @@ server/main.js.map
 
 # generated test coverage
 /coverage/
+et --hard 483928b
