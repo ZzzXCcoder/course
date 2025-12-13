@@ -119,6 +119,7 @@ label {
     max-width: 150px;
     justify-content: center;
     text-align: center;
+    padding: 3px;
 
     a {
       color: $alt-color;
@@ -737,6 +738,34 @@ main {
     justify-content: center;
     white-space: nowrap;
   }
+}
+.active {
+
+  border-bottom: 3px solid $text-main-color;
+  color: $text-main-color;
+  animation: href-animation 1s ease forwards;
+}
+@keyframes  href-animation {
+  0%{
+   font-size: 1rem;
+  }
+  50%{
+    font-size: 1.1rem;
+  }
+  100%{
+    font-size: 1rem;
+  }
+}
+.navbar__menu-item__themeButton{
+  font-size: 3rem;
+  background: none;
+
+}
+.material-icons{
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 

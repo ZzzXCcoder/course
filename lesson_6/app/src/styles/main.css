@@ -94,6 +94,7 @@ label {
   max-width: 150px;
   justify-content: center;
   text-align: center;
+  padding: 3px;
 }
 .navbar__menu-item a {
   color: #FFFFFF;
@@ -640,6 +641,26 @@ main {
     justify-content: center;
     white-space: nowrap;
   }
+}
+.active {
+  border-bottom: 3px solid #FFB800;
+  color: #FFB800;
+  animation: href-animation 1s ease forwards;
+}
+
+@keyframes href-animation {
+  0% {
+    font-size: 1rem;
+  }
+  50% {
+    font-size: 1.1rem;
+  }
+  100% {
+    font-size: 1rem;
+  }
+}
+.navbar__menu-item__theme {
+  font-size: 3rem;
 }
 
 /*# sourceMappingURL=main.css.map */
