@@ -11,6 +11,10 @@
     <title>Портфолио Никиты Малютина</title>
 </head>
 <body>
+<div class="error">
+    <div class="error__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam inventore minima nostrum quas! Eligendi eos error maxime necessitatibus possimus ullam voluptatibus. Accusantium, ex illum maiores quaerat quas qui repudiandae?</div>
+    <button class="error__button">ЗАКРЫТЬ</button>
+</div>
 <header class="hero-section page__hero-section">
 
     <nav class="hero-section__navbar">
@@ -24,11 +28,15 @@
             <li class="navbar__menu-item">
                 <a href="#contacts">СОТРУДНИЧЕСТВО</a>
             </li>
-            <li class="navbar__menu-item navbar__menu-item--to-right">
+            <li class="navbar__menu-item ">
                 <a href="">   ЕЩЁ КОНТЕНТА</a>
             </li>
             <li class="navbar__menu-item ">
-                <button class="material-icons"></button>
+                <span id="dateShower"></span>
+
+            </li>
+            <li class="navbar__menu-item navbar__menu-item--theme">
+                <span class="material-icons" id="theme-toggle" style="cursor: pointer;">light_mode</span>
             </li>
         </ul>
     </nav>
@@ -187,7 +195,7 @@
                     <label for="Message" class="base-section__middle-container__right-container__input-holder__label">
                         Сообщение
                     </label>
-                    <input class="base-section__middle-container__right-container__input-holder__input base-section__middle-container__right-container__input-holder__input--extended" id="Message">
+                    <textarea class="base-section__middle-container__right-container__input-holder__input base-section__middle-container__right-container__input-holder__input--extended" id="Message"></textarea>
                 </div>
                 <button class="base-section__middle-container__right-container__button">
                     Отправить
@@ -222,5 +230,6 @@
     </div>
 </footer>
 <script type="module" src="/src/js/main.ts"></script>
+<script type="module" src="/src/js/theme.ts"></script>
 </body>
 </html>

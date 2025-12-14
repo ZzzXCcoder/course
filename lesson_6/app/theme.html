@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Настройка темы</title>
+    <link rel="stylesheet" href="/src/styles/main.scss">
+</head>
+<body>
+
+<main style="padding: 2rem; max-width: 600px; margin: auto;">
+    <h1>Настройка темы</h1>
+
+    <label>
+        Цвет фона
+        <input type="color" data-var="--background-color">
+    </label>
+
+    <label>
+        Альтернативный фон
+        <input type="color" data-var="--altbackground-color">
+    </label>
+
+    <label>
+        Основной цвет текста
+        <input type="color" data-var="--text-main-color">
+    </label>
+
+    <label>
+        Вторичный текст
+        <input type="color" data-var="--alt-color">
+    </label>
+
+    <br><br>
+
+    <button onclick="resetCustomTheme()">Сбросить</button>
+</main>
+
+
+<script type="module" src="/src/js/theme-controller.ts"></script>
+<script type="module" src="/src/js/theme.ts"></script>
+</body>
+</html>
