@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "webpack": "^5.102.1"
+  },
+  "_npx": {
+    "packages": [
+      "webpack"
+    ]
+  }
+}

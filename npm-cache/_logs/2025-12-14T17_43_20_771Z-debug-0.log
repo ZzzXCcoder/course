@@ -1,0 +1,13 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.6.1
+2 info using node@v24.11.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:D:\CM_Front-main\portfolio_website\vite-project\.npmrc
+5 silly config load:file:C:\Users\makak\.npmrc
+6 silly config load:file:C:\Users\makak\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm run dev
+8 verbose argv "run" "dev"
+9 verbose logfile logs-max:10 dir:C:\Users\makak\AppData\Local\npm-cache\_logs\2025-12-14T17_43_20_771Z-
+10 verbose logfile C:\Users\makak\AppData\Local\npm-cache\_logs\2025-12-14T17_43_20_771Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
