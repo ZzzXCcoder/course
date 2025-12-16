@@ -728,9 +728,12 @@ main {
     margin-right: 5%;
     padding-left: 0;
   }
+  .hero-section__navbar__menu navbar__menu{
+
+  }
   .hero-section,
   .base-section {
-    @include grid-columns(1, 0px); // 1 колонка, паддинг 0
+    @include grid-columns(1, 0px);
   }
   .base-section .base-section__middle-container__container{
     gap:2px;
@@ -749,10 +752,10 @@ main {
   .base-section__middle-container__container,
   .base-section__middle-container__cardholder {
     grid-column: 1 / -1;
-    grid-row: auto;      // ключевое изменение: убираем фиксированные ряды
+    grid-row: auto;
     padding-left: 5%;
     padding-right: 5%;
-    margin-bottom: 2rem; // вертикальный отступ между блоками
+    margin-bottom: 2rem;
   }
   .base-section__middle-container__right-container__input-holder__input,
   .base-section__middle-container__right-container__input-holder__input--extended {

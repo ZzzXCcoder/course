@@ -8,12 +8,12 @@ export class ThemeController {
     }
 
     public applyTheme(theme: ThemeMode): void {
-        document.documentElement.setAttribute('data-theme', theme); // меняем атрибут
-        localStorage.setItem(this.THEME_KEY, theme); // сохраняем тему
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem(this.THEME_KEY, theme);
     }
 
     private applySavedTheme(): void {
-        const savedTheme = (localStorage.getItem(this.THEME_KEY) as ThemeMode) || 'light';
+        const savedTheme:ThemeMode = (localStorage.getItem(this.THEME_KEY) as ThemeMode) || 'light';
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
 }
