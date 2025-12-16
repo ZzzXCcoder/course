@@ -62,6 +62,10 @@ body {
 .theme-dropdown.show {
   display: block;
 }
+.base-section__middle-container__cardholder__card__link{
+  font-size: 2rem;
+}
+
 h1 {
   color: var(--lt-color);
   font-size: 2rem;
@@ -724,6 +728,21 @@ main {
 }
 
 @media (max-width: 600px) {
+  .base-section__middle-container__cardholder{
+    display: grid;
+  }
+  .base-section .base-section__middle-container__cardholder {
+    grid-row-gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+    height: 100%
+
+  }
+  .base-section .base-section__middle-container__cardholder__card {
+    margin-bottom: 0;
+  }
+  .base-section__left-container{
+    min-height: 0;
+  }
   .navbar__menu {
     margin-right: 5%;
     padding-left: 0;
@@ -785,7 +804,9 @@ main {
     grid-template-columns: 1fr;
     padding: 0;
   }
-
+  .base-section__middle-container__right-container__button{
+    font-size: 2rem;
+  }
   .footer-section__content {
     grid-column: 1 / -1;
     padding: 0 5%;
