@@ -3,8 +3,8 @@
     
     
     const sections: HTMLElement[] = links
-        .map(link  => document.querySelector<HTMLElement>(link.getAttribute('href')!))
-        .filter((el): el is HTMLElement => el !== null);
+        .map(link   => document.querySelector<HTMLElement>(link.getAttribute('href')!))
+        .filter((el : HTMLElement | null): el is HTMLElement => el !== null);
     
     
     let sectionOffsets: number[] = sections.map(section => section.offsetTop);
