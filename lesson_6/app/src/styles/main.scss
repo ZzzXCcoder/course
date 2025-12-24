@@ -25,6 +25,12 @@ $columns: 12;
   --alt-color: #FFFFFF;
   --text-main-color: #FFB800;
 }
+:root[data-theme="custom"] {
+  --background-color: #020202;
+  --altbackground-color: #252525;
+  --alt-color: #FFFFFF;
+  --text-main-color: #FFB800;
+}
 
 button{
   all: unset;
@@ -84,6 +90,7 @@ h3 {
 img {
   width: 100%;
   border-radius: 5%;
+
 }
 
 ul {
@@ -574,7 +581,6 @@ main {
   }
   .base-section .base-section__middle-container__container {
     grid-column: 1 / -1;
-    grid-template-columns: repeat(3, 1fr);
     padding-top: 0;
     grid-row-gap: 10%;
     grid-column-gap: 1.5em;
@@ -781,7 +787,7 @@ main {
     min-height: auto;
   }
   .base-section .base-section__middle-container__cardholder__card {
-    max-height: 80%;
+    max-height: 75%;
   }
 
   .base-section .base-section__middle-container__left-container {
@@ -795,11 +801,29 @@ main {
   .base-section .base-section__middle-container {
     grid-column: auto;
   }
+  .base-section__middle-container__container {
+    display: grid;
+    grid-auto-flow: row;               // новые элементы добавляются по строкам
+    grid-template-columns: repeat(auto-fit, minmax(auto, max-content));
+    justify-content: center;           // центрируем все картинки по горизонтали
+    gap: 1rem;                         // расстояние между картинками
+    padding: 1rem;
+  }
+
+  .base-section__middle-container__container__image {
+    width: auto;       // ширина под контент
+    height: auto;      // высота под контент
+    max-width: 100%;   // не вылезать за пределы контейнера
+    object-fit: contain; // сохраняем пропорции
+    display: block;     // убираем лишние пробелы под img
+  }
   .base-section__middle-container__cardholder__card__title {
     height: auto;
     margin: 0;
   }
-
+  .base-section__middle-container__cardholder__card__title{
+    min-height: 40px;
+  }
   .footer-section {
     grid-template-columns: 1fr;
     padding: 0;
