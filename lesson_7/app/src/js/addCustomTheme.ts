@@ -23,14 +23,14 @@ function saveCustomTheme(): void {
 
     document
         .querySelectorAll<HTMLInputElement>('input[type="color"]')
-        .forEach(input  => {
-            const cssVar: string | undefined= input.dataset.cssVar;
+        .forEach(input => {
+            const cssVar = input.dataset.cssVar;
             if (cssVar) {
                 colors[cssVar] = input.value;
             }
         });
 
-    localStorage.setItem( 'user-theme', 'custom');
+    localStorage.setItem('user-theme', 'custom');
     localStorage.setItem('custom-theme-colors', JSON.stringify(colors));
 }
 

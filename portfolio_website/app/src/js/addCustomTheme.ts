@@ -14,3 +14,29 @@ function SetColorValue(htmlInput: HTMLInputElement) : void {
         }
 })
 }
+const themeButn : HTMLButtonElement | null = document.querySelector<HTMLButtonElement>('#theme-btn');
+function saveCustomTheme(): void {
+    type ThemeColors = {
+        [cssVar: string]: string;
+    };
+    const colors: ThemeColors = {};
+
+    document
+        .querySelectorAll<HTMLInputElement>('input[type="color"]')
+        .forEach(input  => {
+            const cssVar: string | undefined= input.dataset.cssVar;
+            if (cssVar) {
+                colors[cssVar] = input.value;
+            }
+        });
+
+    localStorage.setItem( 'user-theme', 'custom');
+    localStorage.setItem('custom-theme-colors', JSON.stringify(colors));
+}
+
+if (themeButn) {
+    themeButn.addEventListener('click', () => {
+        saveCustomTheme();
+
+    });
+}

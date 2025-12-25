@@ -60,26 +60,54 @@
     }
     
     const themeController = new ThemeController();
-    
+
+
+    type ThemeMode = 'light' | 'dark' | 'custom';
 
     document.addEventListener('DOMContentLoaded', () => {
         const themeToggle = document.getElementById('theme-toggle') as HTMLElement;
-    
-        const updateIcon = (theme: 'light' | 'dark') => {
-            themeToggle.textContent = theme === 'light' ? 'light_mode' : 'dark_mode';
+        if (!themeToggle) return;
+
+        const updateIcon = (theme: ThemeMode) => {
+            switch (theme) {
+                case 'light':
+                    themeToggle.textContent = 'light_mode';
+                    break;
+                case 'dark':
+                    themeToggle.textContent = 'dark_mode';
+                    break;
+                case 'custom':
+                    themeToggle.textContent = 'palette';
+                    break;
+            }
         };
-    
-        const currentTheme = localStorage.getItem('user-theme') as 'light' | 'dark' | null;
-        updateIcon(currentTheme || 'light');
-    
+
+        const storedTheme = localStorage.getItem('user-theme');
+        const currentTheme: ThemeMode =
+            storedTheme === 'dark' || storedTheme === 'custom'
+                ? storedTheme
+                : 'light';
+
+        updateIcon(currentTheme);
+
         themeToggle.addEventListener('click', () => {
-            const newTheme = (document.documentElement.getAttribute('data-theme') === 'light') ? 'dark' : 'light';
-            themeController.applyTheme(newTheme);
-            updateIcon(newTheme);
+            const activeTheme =
+                (document.documentElement.getAttribute('data-theme') as ThemeMode) || 'light';
+
+            const nextTheme: ThemeMode =
+                activeTheme === 'light' ? 'dark' : 'light';
+
+            if (activeTheme === 'custom') {
+                themeController.clearCustomColors();
+            }
+
+            themeController.applyTheme(nextTheme);
+            updateIcon(nextTheme);
         });
     });
-    
-    
+
+
+
     let dateShower = document.getElementById('dateShower');
     if(dateShower !== null) {
         let dateTime:Date = new Date();
