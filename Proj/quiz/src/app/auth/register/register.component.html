@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm">
+  <div class="form-page">
+    <h1 class="form-page__name">
+      Регистрация
+    </h1>
+      <label class="form-page__label">Введите пожалуйста логин</label>
+      <div class="form-page__input-holder">
+        <input class="form-page__input-holder__input" name="name" formControlName="userName">
+        @if(loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched){
+          @for (error of getErrors('userName'); track error){
+            <p class="alert">{{error}}</p>
+          }
+        }
+      </div>
+      <div>
+        <input name="password" formControlName="userPassword">
+        @if(loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched){
+          @for (error of getErrors('userPassword'); track error){
+            <p class="alert">{{error}}</p>
+          }
+        }
+      </div>
+
+
+    <button [disabled]="loginForm.valid">Зарегестрировать чела</button>
+  </div>
+</form>
