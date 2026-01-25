@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import {FormsModule, FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators} from '@angular/forms';
 import {registerValidator} from './registerValidators/registerValidator';
 import {AuthService} from '../authService/auth.service'
 import {RegisterRequest} from '../Dto/authDtos';
+import {Router} from '@angular/router';
+import {AuthApi} from '../IAuthService/authapi';
+import {AUTH_API} from '../authService/auth-token';
 
 @Component({
   selector: 'app-register.component',
@@ -12,7 +15,9 @@ import {RegisterRequest} from '../Dto/authDtos';
 })
 export class RegisterComponent {
   registerForm:FormGroup;
-  constructor(private authService: AuthService) {
+  constructor(@Inject(AUTH_API) private authService: AuthApi,
+              private  router: Router) {
+
     this.registerForm = new FormGroup({
       userName: new FormControl('', [Validators.required, registerValidator] ),
       userPassword: new FormControl('', [Validators.required, registerValidator]),
@@ -54,7 +59,10 @@ export class RegisterComponent {
       password: this.registerForm.value.userPassword
     };
     this.authService.register(data).subscribe({
-      next: () => alert('Logged in successfully!'),
+      next: () => {
+        alert('Регистрация успешна!');
+        this.router.navigate(['/login']);
+      },
       error: (err:any) => console.error(err)
     });
   }

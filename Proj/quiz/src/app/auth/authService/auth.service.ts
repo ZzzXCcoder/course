@@ -13,15 +13,15 @@ export class AuthService implements AuthApi {
 
     }
     register(data: RegisterRequest): Observable<any> {
-       return this.http.post(`${this.apiUrl}/register`, data, {withCredentials: true});
+       return this.http.post(`${this.apiUrl}/register`, data);
     }
     login(data: LoginRequest): Observable<any> {
-      return this.http.post(`${this.apiUrl}/login`, data, {withCredentials: true});
+      return this.http.post(`${this.apiUrl}/login`, data);
     }
     logout(): Observable<any> {
-      return this.http.post(`${this.apiUrl}/logout`,{withCredentials: true});
+      return this.http.post(`${this.apiUrl}/logout`,null);
     }
     me(): Observable<any> {
-      return this.http.get(`${this.apiUrl}/me`, {withCredentials: true});
+      return this.http.get(`${this.apiUrl}/me`, );
     }
 }

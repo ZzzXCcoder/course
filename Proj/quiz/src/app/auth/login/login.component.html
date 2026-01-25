@@ -1,0 +1,51 @@
+<form
+  class="form-page"
+  [formGroup]="loginForm"
+  (ngSubmit)="submit()"
+>
+
+  <h1 class="form-page__name">Вход</h1>
+  <h2>Войдите в аккаунт</h2>
+
+  <label class="form-page__label">Логин</label>
+  <div class="form-page__input-holder">
+    <input
+      class="form-page__input-holder__input"
+      formControlName="userName"
+      type="text"
+    />
+
+    @if (loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched) {
+      <p class="alert">Введите логин</p>
+    }
+  </div>
+
+
+  <label class="form-page__label">Пароль</label>
+  <div class="form-page__input-holder">
+    <input
+      class="form-page__input-holder__input"
+      formControlName="userPassword"
+      type="password"
+    />
+
+    @if (loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched) {
+      <p class="alert">Введите пароль</p>
+    }
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Войти
+  </button>
+
+  <div class="form-page__footer">
+    <p>
+      Нет аккаунта?
+      <a routerLink="/register">Зарегистрироваться</a>
+    </p>
+  </div>
+
+</form>
