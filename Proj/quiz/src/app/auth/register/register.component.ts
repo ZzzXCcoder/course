@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule, FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators} from '@angular/forms';
 import {registerValidator} from './registerValidators/registerValidator';
+import {AuthService} from '../authService/auth.service'
 
 @Component({
   selector: 'app-register.component',
@@ -9,16 +10,16 @@ import {registerValidator} from './registerValidators/registerValidator';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  loginForm:FormGroup;
-  constructor() {
-    this.loginForm = new FormGroup({
+  registerForm:FormGroup;
+  constructor(private authService: AuthService) {
+    this.registerForm = new FormGroup({
       userName: new FormControl('', [Validators.required, registerValidator] ),
       userPassword: new FormControl('', [Validators.required, registerValidator]),
     })
   }
 
    getErrors(controlName: string) : string[]  {
-    let contorl = this.loginForm.get(controlName);
+    let contorl = this.registerForm.get(controlName);
     let errors: string[] = [];
     if (!contorl || !contorl.errors) {
       return errors;
@@ -40,6 +41,16 @@ export class RegisterComponent {
     }
     return errors;
   }
-
+  submit(){
+    if (this.registerForm.invalid) {
+      this.registerForm.markAsTouched();
+      return;
+    }
+    const data = this.registerForm.value;
+    this.authService.register(data).subscribe({
+      next: () => alert('Logged in successfully!'),
+      error: (err:any) => console.error(err)
+    });
+  }
 }
 
