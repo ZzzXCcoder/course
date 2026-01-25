@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormsModule, FormGroup, FormControl, ReactiveFormsModule, FormBuilder, Validators} from '@angular/forms';
 import {registerValidator} from './registerValidators/registerValidator';
 import {AuthService} from '../authService/auth.service'
+import {RegisterRequest} from '../Dto/authDtos';
 
 @Component({
   selector: 'app-register.component',
@@ -42,11 +43,16 @@ export class RegisterComponent {
     return errors;
   }
   submit(){
+
+    console.log(this.registerForm.value)
     if (this.registerForm.invalid) {
       this.registerForm.markAsTouched();
       return;
     }
-    const data = this.registerForm.value;
+    const data: RegisterRequest = {
+      username: this.registerForm.value.userName,
+      password: this.registerForm.value.userPassword
+    };
     this.authService.register(data).subscribe({
       next: () => alert('Logged in successfully!'),
       error: (err:any) => console.error(err)
