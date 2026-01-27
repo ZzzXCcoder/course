@@ -1,0 +1,32 @@
+  <form [formGroup]="question">
+    <div>
+      <label> Введите название опросника</label>
+      <input formControlName="name">
+    </div>
+    <div>
+      @if (!this.wantAddQuestion){
+        <button (click)="setAddQuestionButtonFalse()">Добавить вопрос</button>
+      }
+      @if (this.wantAddQuestion) {
+        @switch (typeToAdd){
+          @case ('text'){
+
+          }
+      }
+      @else {
+        <label>Выберете тип</label>
+        <select >
+          <option>
+            Текстовый
+          </option>
+          <option>
+            С диапазоном
+          </option>
+          <option>
+            С выбором
+          </option>
+        </select>
+      }
+
+    </div>
+  </form>
