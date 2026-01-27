@@ -5,7 +5,8 @@ import {LoginComponent} from './auth/login/login.component';
 import {QuizComponent} from './quiz/quiz.component/quiz.component';
 
 
-
+//TODO: бегит пресс качат выход из системы me показывать квизы просмотр 1 квиза Ответы на квизы Просмотр ответов на квизы верстку все я адихать
+// Жду фидбек(
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [nonAuthGuard] },
