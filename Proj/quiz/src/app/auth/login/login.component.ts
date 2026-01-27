@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { LoginRequest } from '../Dto/authDtos';
 import { AuthApi } from '../IAuthService/authapi';
 import { AUTH_API } from '../authService/auth-token';
+import {AuthState} from '../../states/auth-state.service'
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent {
 
   constructor(
     @Inject(AUTH_API) private authService: AuthApi,
+    private authState: AuthState,
     private router: Router
   ) {}
 
@@ -44,8 +46,9 @@ export class LoginComponent {
 
     this.authService.login(data).subscribe({
       next: () => {
+        this.authState.loggedIn.set(true);
         alert('Вход выполнен');
-        this.router.navigate(['/']);
+        this.router.navigate(['/quiz']);
       },
       error: err => {
         console.error(err);

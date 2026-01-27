@@ -8,7 +8,7 @@ import {QuizRequest, QuizResponse} from '../Dto/quizRequestDto';
 
 @Injectable({providedIn: 'root'})
 export class QuizService implements QuizApi {
-  private apiUrl = environment.apiUrl + '/';
+  private apiUrl = environment.apiUrl + '/quizes';
 
   constructor(private http: HttpClient) {
 
