@@ -13,28 +13,28 @@ export interface QuizResponse {
 export type QuizItemRequest = RangeItemRequest | SelectItemRequest | TextItemRequest
 
 export interface RangeItemRequest {
-  name: string;
+  type: 'range';
+  title: string;
   description: string;
   min: number;
   max: number;
-  type: 'range';
 }
 export interface SelectItemRequest {
-  name: string;
+  type: 'select';
+  title: string;
   description: string;
   options: string[];
-  type: 'select';
 }
 export interface TextItemRequest {
-  name: string;
+  type: 'text'
+  title: string;
   description: string;
   placeholder: string;
-  type: 'text'
 }
 export type QuizItemResponse = RangeItemResponse | SelectItemResponse | TextItemResponse
 
 export interface RangeItemResponse {
-  name: string;
+  title: string;
   description: string;
   min: number;
   max: number;
@@ -43,7 +43,7 @@ export interface RangeItemResponse {
   quizId: number;
 }
 export interface SelectItemResponse {
-  name: string;
+  title: string;
   description: string;
   options: string[];
   type: 'select';
@@ -51,7 +51,7 @@ export interface SelectItemResponse {
   quizId: number;
 }
 export interface TextItemResponse {
-  name: string;
+  title: string;
   description: string;
   placeholder: string;
   type: 'text'

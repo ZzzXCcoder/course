@@ -2,34 +2,40 @@
   <div>
     <label> Введите название опросника</label>
     <input formControlName="name">
+    <label>Введите описание опросника</label>
+    <input formControlName="description">
   </div>
   <div>
 
     <div formArrayName="questions">
       @for (control of getQuestion().controls; track control; let i = $index) {
-        <label>Назв</label>
-        <label>оп</label>
         <div [formGroupName]="i">
+        <label> Название вопроса</label>
+        <input formControlName="name">
+        <label> Описание вопроса</label>
+        <input formControlName="description">
           @switch (control.get('type')?.value){
             @case ('text'){
 
             }
             @case('range'){
-              <label>Минимальное значение </label>
-              <input>
-              <label>Максиимальное значение </label>
-              <input>
+              <input type ='number' formControlName="min" >
+              <input type ='number' formControlName="max">
+            }
+            @case ('select'){
+              <div>
+
+              </div>
+              <button type="button" (click)="addOption()"></button>
             }
           }
         </div>
+        <button type="button" (click)="removeQuestion(i)">Удааалииить</button>
       }
     </div>
-    @if (!this.wantAddQuestion){
-      <button (click)="setAddQuestionButtonFalse()">Добавить вопрос</button>
-    }
-    @if(this.wantAddQuestion) {
+
       <label>Выберете тип вопроса</label>
-      <select [(ngModel)]="typeToAdd">
+      <select [(ngModel)] ="typeToAdd"  [ngModelOptions]="{ standalone: true }">
         <option value="text">
           Текстовый
         </option>
@@ -40,8 +46,12 @@
           С выбором
         </option>
       </select>
-      <button (click)="addQuestion(typeToAdd)"></button>
-    }
+    <button type="button" (click)="addQuestion(typeToAdd)">
+      Добавить
+    </button>
+
 
   </div>
+
+  <button (click)="submit()" type="submit" [disabled]="question.invalid">Подтвердить</button>
 </form>
