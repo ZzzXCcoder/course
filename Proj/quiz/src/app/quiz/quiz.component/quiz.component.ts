@@ -22,7 +22,7 @@ export class QuizComponent {
        questions: new FormArray([])
      });
    }
-   private getQuestion() {
+   public getQuestion()  {
      return this.question.get('questions') as FormArray ;
    }
    setAddQuestionButtonFalse(){
@@ -102,4 +102,5 @@ export class QuizComponent {
 
    }
 
+  protected readonly FormGroup = FormGroup;
 }
