@@ -70,8 +70,14 @@
      removeQuestion(index : number) {
        this.getQuestion().removeAt(index);
      }
-     addOption(){
+     addOption(questionIndex: number) {
+       const questions = this.getQuestion();
+       const question = questions.at(questionIndex) as FormGroup;
 
+       if (question.get('type')?.value === 'select') {
+         const options = question.get('options') as FormArray;
+         options.push(new FormControl('', Validators.required));
+       }
      }
 
      submit(){
