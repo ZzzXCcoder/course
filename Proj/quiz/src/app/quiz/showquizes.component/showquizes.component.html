@@ -1,0 +1,36 @@
+@for (quiz of quizes; track quiz){
+  @if(!quiz){
+    ЫЫЫЫЫЫ
+  }
+  <h1>{{quiz.name}}</h1>
+  <img src="https://us.123rf.com/450wm/georgepanfili/georgepanfili2003/georgepanfili200300803/148467237-quiz-logo-and-icon-vector-isolated-image.jpg?ver=6">
+  <h2>{{quiz.description}}</h2>
+}
+
+
+
+
+
+<div>
+  <button type="button" (click)="prevPageNumber()"><</button>
+</div>
+
+<div>
+  <label>{{dto?.pageNumber}}</label>
+</div>
+
+<div>
+  <button type="button" (click)="nextPageNumber()">></button>
+</div>
+
+
+<div>
+  <input
+    type="number"
+    min="1"
+    [value]="dto.pageSize"
+    [(ngModel)]="size"
+    (change)="changePageSize()"
+  />
+</div>
+
