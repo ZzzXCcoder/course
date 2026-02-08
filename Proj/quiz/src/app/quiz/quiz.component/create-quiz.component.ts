@@ -128,7 +128,7 @@
              type: 'text',
              title: q.name,
              description: q.description,
-             placeholder: 'Введите текст'
+             placeholder: ''
            } as TextItemRequest;
          }
          else if (q.type === 'range') {
