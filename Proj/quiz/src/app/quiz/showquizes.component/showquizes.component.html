@@ -1,10 +1,9 @@
-@for (quiz of quizes; track quiz){
-  @if(!quiz){
-    ЫЫЫЫЫЫ
-  }
-  <h1>{{quiz.name}}</h1>
+@for ( quiz of quizes; track quiz) {
+  <a (click)="goToQuiz(quiz.id)" >{{ quiz.name }}FFFFFFFFF</a>
   <img src="https://us.123rf.com/450wm/georgepanfili/georgepanfili2003/georgepanfili200300803/148467237-quiz-logo-and-icon-vector-isolated-image.jpg?ver=6">
   <h2>{{quiz.description}}</h2>
+  <button type="button" (click)="goToQuiz(quiz.id)">Открыть</button>
+
 }
 
 

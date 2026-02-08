@@ -3,6 +3,7 @@ import {ShowQuizService} from '../quizService/show-quiz.service';
 import {ShowQuizDto} from '../Dto/show-quizRequestDto';
 import {ShowQuizResponse} from '../Dto/show-quizResponceDto';
 import {FormsModule} from '@angular/forms';
+import {Router, RouterLink, RouterModule} from '@angular/router';
 
 
 @Component({
@@ -11,6 +12,8 @@ import {FormsModule} from '@angular/forms';
   standalone : true,
   imports: [
     FormsModule,
+    RouterLink,
+    RouterModule
   ],
   styleUrls: ['./showquizes.component.scss']
 })
@@ -20,7 +23,7 @@ export class ShowquizesComponent implements OnInit{
   size : number = 5;
   dto: ShowQuizDto = { pageNumber: 1, pageSize: 5 };
 
-  constructor(private showQuizService: ShowQuizService, private cdr: ChangeDetectorRef) {
+  constructor(private showQuizService: ShowQuizService, private cdr: ChangeDetectorRef, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -63,5 +66,8 @@ export class ShowquizesComponent implements OnInit{
     debugger
     this.dto.pageSize = this.size;
     this.loadQuizes();
+  }
+  goToQuiz(id : number){
+    this.router.navigate([`/quiz/${id}`]);
   }
 }
