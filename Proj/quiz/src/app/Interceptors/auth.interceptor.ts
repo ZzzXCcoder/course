@@ -10,6 +10,7 @@ export const handleAuth: HttpInterceptorFn = (req, next) => {
   const authState = inject(AuthState);
   const router = inject(Router);
   return next(req).pipe(
+
     catchError((err: HttpErrorResponse) => {
       if (err.status === 401) {
         authState.loggedIn.set(false);
@@ -17,6 +18,7 @@ export const handleAuth: HttpInterceptorFn = (req, next) => {
       }
       return throwError(() => err);
     }),
+
   );
 };
 

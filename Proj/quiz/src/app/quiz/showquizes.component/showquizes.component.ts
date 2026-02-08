@@ -26,15 +26,15 @@ export class ShowquizesComponent implements OnInit{
   ngOnInit(): void {
     debugger
     this.loadQuizes();
-    this.loadQuizes();
   }
   loadQuizes() {
-     this.showQuizService.showQuizes(this.dto).subscribe(res => {
+    this.showQuizService.showQuizes(this.dto).subscribe(res => {
       this.quizesPage = res;
       this.quizes = res.items;
       console.log(this.quizes);
+      this.cdr.detectChanges();
     });
-    this.cdr.detectChanges();
+
   }
 
   nextPageNumber() {
@@ -65,5 +65,3 @@ export class ShowquizesComponent implements OnInit{
     this.loadQuizes();
   }
 }
-
-
