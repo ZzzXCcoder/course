@@ -3,7 +3,7 @@ import {environment} from '../../../environment/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {QuizApi} from '../IQuizService/quizApi';
-import {QuizRequest, QuizResponse} from '../Dto/quizRequestDto';
+import {QuizRequest, QuizResponse} from '../Dto/create-quizRequestDto';
 
 @Injectable({providedIn: 'root'})
 export class QuizService implements QuizApi {

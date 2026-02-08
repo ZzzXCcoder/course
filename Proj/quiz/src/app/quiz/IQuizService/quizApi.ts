@@ -1,4 +1,4 @@
-import {QuizRequest, QuizResponse} from '../Dto/quizRequestDto';
+import {QuizRequest, QuizResponse} from '../Dto/create-quizRequestDto';
 import {Observable} from 'rxjs';
 
 export interface QuizApi{

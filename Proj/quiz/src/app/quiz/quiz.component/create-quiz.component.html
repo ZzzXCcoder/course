@@ -22,11 +22,16 @@
               <input type ='number' formControlName="min" >
               <input type ='number' formControlName="max">
             }
-            @case ('select'){
-              <div>
-
+            @case ('select') {
+              <div formArrayName="options">
+                @for (opt of getOptions(i)?.controls; track opt; let j = $index) {
+                  <div style="display:flex; gap:5px; align-items:center;">
+                    <input [formControlName]="j" placeholder="Вариант ответа">
+                    <button type="button" (click)="removeOption(i, j)">✕</button>
+                  </div>
+                }
+                <button type="button" (click)="addOption(i)">Добавить вариант</button>
               </div>
-
             }
           }
         </div>

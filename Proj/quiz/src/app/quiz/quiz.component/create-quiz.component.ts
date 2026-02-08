@@ -1,17 +1,17 @@
   import { Component } from '@angular/core';
   import {FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-  import {QuizItemRequest, QuizRequest, RangeItemRequest, SelectItemRequest, TextItemRequest} from '../Dto/quizRequestDto'
+  import {QuizItemRequest, QuizRequest, RangeItemRequest, SelectItemRequest, TextItemRequest} from '../Dto/create-quizRequestDto'
   import {QuizService} from '../quizService/quiz.service';
 
   @Component({
     selector: 'app-quiz',
     standalone: true,
     imports: [ReactiveFormsModule, FormsModule],
-    templateUrl: './quiz.component.html',
-    styleUrls: ['./quiz.component.scss']
+    templateUrl: './create-quiz.component.html',
+    styleUrls: ['./create-quiz.component.scss']
   })
 
-  export class QuizComponent {
+  export class CreateQuizComponent {
 
     typeToAdd : 'text' | 'range' | 'select' = 'text';
      wantAddQuestion : boolean = false;
@@ -65,12 +65,22 @@
          return;
        }
        this.wantAddQuestion = false;
-        this.getQuestion().push(newQuestion);
+       this.getQuestion().push(newQuestion);
      }
      removeQuestion(index : number) {
        this.getQuestion().removeAt(index);
      }
+     getOptions(questionIndex : number) : FormArray | undefined {
+       const questions = this.getQuestion();
+       const question = questions.at(questionIndex) as FormGroup;
+
+       if (question.get('type')?.value === 'select') {
+         return  question.get('options') as FormArray;
+       }
+       return undefined;
+     }
      addOption(questionIndex: number) {
+       debugger;
        const questions = this.getQuestion();
        const question = questions.at(questionIndex) as FormGroup;
 
@@ -79,6 +89,12 @@
          options.push(new FormControl('', Validators.required));
        }
      }
+    removeOption(questionIndex: number, optionIndex: number) {
+      const questions = this.getQuestion();
+      const question = questions.at(questionIndex) as FormGroup;
+      const options = question.get('options') as FormArray;
+      options.removeAt(optionIndex);
+    }
 
      submit(){
        let quizDto = this.convertFromFormToDto()
@@ -129,7 +145,7 @@
              type: 'select',
              title: q.name,
              description: q.description,
-             options: q.options ? q.options.map((o: any) => o.value) : []
+             options: q.options ? q.options.map((o: any) => o) : []
            } as SelectItemRequest;
          }
          else{
