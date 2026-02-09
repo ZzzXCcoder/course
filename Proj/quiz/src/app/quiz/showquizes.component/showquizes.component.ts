@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ShowQuizService} from '../quizService/show-quiz.service';
-import {ShowQuizDto} from '../Dto/show-quizRequestDto';
-import {ShowQuizResponse} from '../Dto/show-quizResponceDto';
+import {ShowQuizDto} from '../Dto/show-quizesRequestDto';
+import {ShowQuizResponse} from '../Dto/show-quizesResponceDto';
 import {FormsModule} from '@angular/forms';
 import {Router, RouterLink, RouterModule} from '@angular/router';
 
@@ -12,7 +12,6 @@ import {Router, RouterLink, RouterModule} from '@angular/router';
   standalone : true,
   imports: [
     FormsModule,
-    RouterLink,
     RouterModule
   ],
   styleUrls: ['./showquizes.component.scss']
