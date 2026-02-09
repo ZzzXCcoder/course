@@ -1,0 +1,22 @@
+@if (!(this.authState.loggedIn)) {
+  <div class="unautorizedUsers">
+    <nav>
+      <label (click)="navigateToLogin()">Войти</label>
+      <label (click)="navigateToRegister()">Регистрация</label>
+      <label (click)="navigateToLogout()">Выйти из аккаунта</label>
+    </nav>
+  </div>
+}
+
+@else if (this.authState.loggedIn){
+  <div class="autorizedUsers">
+    <nav>
+      <label (click)="navigateToMainPage()">
+        Главная
+      </label>
+      <label (click)="createQuizPage()">
+        Создать квиз
+      </label>
+    </nav>
+  </div>
+}

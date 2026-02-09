@@ -9,6 +9,9 @@ import {catchError, throwError} from 'rxjs';
 export const handleAuth: HttpInterceptorFn = (req, next) => {
   const authState = inject(AuthState);
   const router = inject(Router);
+  if (req.headers.has('skip-auth-interceptor')) {
+    return next(req);
+  }
   return next(req).pipe(
 
     catchError((err: HttpErrorResponse) => {

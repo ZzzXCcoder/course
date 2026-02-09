@@ -1,37 +1,34 @@
-<form
-  class="form-page"
-  [formGroup]="loginForm"
-  (ngSubmit)="submit()"
->
+<form  class="form-page" [formGroup]="loginForm" (ngSubmit)="submit()">
 
-  <h1 class="form-page__name">Вход</h1>
+  <h1 class="form-page__name">Войти в аккаунт</h1>
   <h2>Войдите в аккаунт</h2>
 
-  <label class="form-page__label">Логин</label>
+  @if (loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched) {
+    <p class="alert">Введите логин</p>
+  }
+
   <div class="form-page__input-holder">
     <input
       class="form-page__input-holder__input"
       formControlName="userName"
       type="text"
+      placeholder="Логин"
     />
 
-    @if (loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched) {
-      <p class="alert">Введите логин</p>
-    }
   </div>
 
+  @if (loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched) {
+    <p class="alert">Введите пароль</p>
+  }
 
-  <label class="form-page__label">Пароль</label>
   <div class="form-page__input-holder">
     <input
       class="form-page__input-holder__input"
       formControlName="userPassword"
       type="password"
+      placeholder="Пароль"
     />
 
-    @if (loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched) {
-      <p class="alert">Введите пароль</p>
-    }
   </div>
 
   <button
