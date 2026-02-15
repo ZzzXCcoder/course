@@ -1,11 +1,18 @@
   <div class="autorizedUsers">
-    <nav>
-      <label (click)="navigateToMainPage()">
-        Главная
-      </label>
-      <label (click)="createQuizPage()">
-        Создать квиз
-      </label>
+    <nav class="quiz_navbar">
+      <div class="quiz_navbar__logo">
+        <label class="logo" >
+          Лого
+        </label>
+      </div>
+      <div class="quiz_navbar__nav">
+        <label class="quiz_navbar__nav__label" (click)="navigateToMainPage()">
+          Главная
+        </label>
+        <label class="quiz_navbar__nav__label" (click)="createQuizPage()">
+          Создать квиз
+        </label>
+      </div>
     </nav>
   </div>
 

@@ -1,18 +1,18 @@
-<form [formGroup]="question">
-  <div>
-    <label> Введите название опросника</label>
+<form [formGroup]="question" class="createForm">
+  <div class="quizLabel">
+    <label class="quizLabel__Name"> Введите название опросника</label>
     <input formControlName="name">
-    <label>Введите описание опросника</label>
+    <label class="quizLabel__Name">Введите описание опросника</label>
     <input formControlName="description">
   </div>
   <div>
 
     <div formArrayName="questions">
       @for (control of getQuestion().controls; track control; let i = $index) {
-        <div [formGroupName]="i">
-        <label> Название вопроса</label>
+        <div [formGroupName]="i" class="quizQuestion">
+        <label class="quizQuestion__Name"> Название вопроса</label>
         <input formControlName="name">
-        <label> Описание вопроса</label>
+        <label class="quizQuestion__Name"> Описание вопроса</label>
         <input formControlName="description">
           @switch (control.get('type')?.value){
             @case ('text'){
@@ -26,7 +26,7 @@
               <div formArrayName="options">
                 @for (opt of getOptions(i)?.controls; track opt; let j = $index) {
                   <div style="display:flex; gap:5px; align-items:center;">
-                    <input [formControlName]="j" placeholder="Вариант ответа">
+                    <input class="variant" [formControlName]="j" placeholder="Вариант ответа">
                     <button type="button" (click)="removeOption(i, j)">✕</button>
                   </div>
                 }
@@ -36,11 +36,12 @@
           }
         </div>
         <button type="button" (click)="removeQuestion(i)">Удааалииить</button>
+        <div class="justSpace"></div>
       }
     </div>
-
-      <label>Выберете тип вопроса</label>
-      <select [(ngModel)] ="typeToAdd"  [ngModelOptions]="{ standalone: true }">
+    <div class="selectQuiestion">
+      <label class="selectQuiestion__Name">Выберете тип вопроса</label>
+      <select [(ngModel)] ="typeToAdd"  [ngModelOptions]="{ standalone: true }" class="selectQuiestion__select">
         <option value="text">
           Текстовый
         </option>
@@ -51,11 +52,10 @@
           С выбором
         </option>
       </select>
-    <button type="button" (click)="addQuestion(typeToAdd)">
-      Добавить
-    </button>
-
-
+      <button type="button" (click)="addQuestion(typeToAdd)" class="selectQuiestion__btn">
+        Добавить
+      </button>
+    </div>
   </div>
 
   <button (click)="submit()" type="submit" [disabled]="question.invalid">Подтвердить</button>

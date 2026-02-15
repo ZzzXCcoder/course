@@ -1,14 +1,11 @@
 <form [formGroup]="registerForm">
   <div class="form-page">
     <h1 class="form-page__name">
-      Создайте аккаунт
+      Регистрация
     </h1>
-    <h2>
-      Зарегестрируйтесь чтобы создавать и проходить квизы
-    </h2>
-      <label class="form-page__label">Введите пожалуйста логин</label>
+
       <div class="form-page__input-holder">
-        <input class="form-page__input-holder__input" name="name" formControlName="userName">
+        <input class="form-page__input-holder__input" name="name" formControlName="userName" placeholder="Логин">
         @if(registerForm.controls['userName'].invalid && registerForm.controls['userName'].touched){
           @for (error of getErrors('userName'); track error){
             <p class="alert">{{error}}</p>
@@ -16,7 +13,7 @@
         }
       </div>
       <div>
-        <input name="password" formControlName="userPassword">
+        <input name="password" formControlName="userPassword" placeholder="Пароль">
         @if(registerForm.controls['userPassword'].invalid && registerForm.controls['userPassword'].touched){
           @for (error of getErrors('userPassword'); track error){
             <p class="alert">{{error}}</p>
@@ -26,10 +23,9 @@
 
 
     <button (click)="submit()" type="submit" [disabled]="registerForm.invalid">Подтвердить</button>
-    <div>
+    <div class="redirect">
       <h3>Уже имеете аккаунт?</h3>
-      <label (click)="redirectToLogin()">Войдите</label>
-      <p>Сюда надо вставить ссылку на логин</p>
+      <label class="toLogin" (click)="redirectToLogin()">Войдите</label>
     </div>
   </div>
 </form>

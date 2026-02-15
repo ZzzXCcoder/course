@@ -26,7 +26,7 @@ export class ShowquizesComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    debugger
+
     this.loadQuizes();
   }
   loadQuizes() {
@@ -40,7 +40,7 @@ export class ShowquizesComponent implements OnInit{
   }
 
   nextPageNumber() {
-    debugger
+
     if (!this.quizesPage) return;
 
     if (!this.quizesPage.hasNextPage) {
@@ -52,7 +52,8 @@ export class ShowquizesComponent implements OnInit{
   }
 
   prevPageNumber() {
-    debugger
+
+
     if (!this.quizesPage) return;
 
     if (!this.quizesPage.hasPreviousPage) {
@@ -62,7 +63,7 @@ export class ShowquizesComponent implements OnInit{
     this.loadQuizes();
   }
   changePageSize() {
-    debugger
+
     this.dto.pageSize = this.size;
     this.loadQuizes();
   }

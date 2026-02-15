@@ -1,11 +1,7 @@
 <form  class="form-page" [formGroup]="loginForm" (ngSubmit)="submit()">
 
-  <h1 class="form-page__name">Войти в аккаунт</h1>
-  <h2>Войдите в аккаунт</h2>
+  <h1 class="form-page__name">Логин</h1>
 
-  @if (loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched) {
-    <p class="alert">Введите логин</p>
-  }
 
   <div class="form-page__input-holder">
     <input
@@ -16,10 +12,10 @@
     />
 
   </div>
-
-  @if (loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched) {
-    <p class="alert">Введите пароль</p>
+  @if (loginForm.controls['userName'].invalid && loginForm.controls['userName'].touched) {
+    <p class="alert">Введите логин</p>
   }
+
 
   <div class="form-page__input-holder">
     <input
@@ -28,7 +24,9 @@
       type="password"
       placeholder="Пароль"
     />
-
+    @if (loginForm.controls['userPassword'].invalid && loginForm.controls['userPassword'].touched) {
+      <p class="alert">Введите пароль</p>
+    }
   </div>
 
   <button
@@ -39,10 +37,10 @@
   </button>
 
   <div class="form-page__footer">
-    <p>
+    <p class="noAccout">
       Нет аккаунта?
-      <a routerLink="/register">Зарегистрироваться</a>
-    </p>
+    </p >
+    <a routerLink class="toRegister" (click)="navigateToRegister()">Зарегистрироваться</a>
   </div>
 
 </form>

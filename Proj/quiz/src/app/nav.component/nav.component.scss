@@ -1,0 +1,50 @@
+@use '../../styles/mixins' as mixins;
+.quiz_navbar__nav__label{
+  background-color: var(--color-primary);
+  min-width: 80px;
+  text-align: center;
+  font-size: 2rem;
+  border-radius: 10px;
+}
+.logo{
+  height: 5rem;
+  background-color: var(background-color);
+  font-size: 3rem;
+}
+.quiz_navbar__nav__label:hover{
+  background-color: var(--color-primary-hover);
+}
+.quiz_navbar{
+  display: grid;
+  padding: 1rem;
+
+}
+.quiz_navbar__nav{
+  color: var(--color-onprim-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  line-height: 5rem;
+  width: 30%;
+  justify-self: end;
+  gap: 2rem;
+}
+
+
+@include mixins.tablet {
+  .quiz_navbar{
+    grid-template-columns: 300px 1fr;
+
+  }
+  .quiz_navbar__nav{
+
+  }
+
+}
+
+@include mixins.desktop {
+
+}
+
+@include mixins.wide {
+
+}

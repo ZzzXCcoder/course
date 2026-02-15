@@ -1,3 +1,34 @@
-@media (max-width: 600px){
 
+.form-page{
+  display: grid;
+  text-align: center;
+  padding-inline: 30%;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: center;
+}
+.form-page__name{
+  color: #5651b3;
+
+}
+.redirect{
+  display: grid;
+  line-height: 5rem;
+
+}
+h3{
+  font-weight: normal;
+  font-size: 3rem;
+}
+.toLogin{
+  text-align: center;
+  color: var(--color-onprim-color);
+  background-color: var(--color-primary);
+  border-radius: 9px;
+  font-weight: 400;
+  font-size: 2rem;
+
+}
+.toregister:hover{
+  background-color: var(--color-primary-hover);
 }

@@ -1,4 +1,33 @@
 .form-page{
   display: grid;
+  padding-inline: 30%;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
-
+.form-page__name{
+  text-align: center;
+}
+.toRegister{
+  text-align: center;
+  color: var(--color-onprim-color);
+  background-color: var(--color-primary);
+  border-radius: 9px;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4rem;
+}
+.toRegister:hover{
+  background-color: var(--color-primary-hover);
+}
+.form-page__footer{
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  text-align: center;
+}
+.noAccout{
+  font-weight: normal;
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+}

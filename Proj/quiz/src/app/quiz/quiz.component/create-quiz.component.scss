@@ -1,0 +1,56 @@
+.createForm{
+  display: grid;
+  padding-inline: 15%;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.quizLabel{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  border-bottom: #4f46e5 1px solid;
+  padding-bottom: 1rem;
+
+}
+.quizLabel__Name{
+  font-size: 1.5rem;
+}
+.quizQuestion{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+
+}
+.quizQuestion__Name{
+  font-size: 1.5rem;
+}
+.justSpace{
+  padding-bottom: 2rem;
+  border-bottom: #4f46e5 1px solid;
+}
+.selectQuiestion{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+.selectQuiestion__Name{
+  font-size: 1.5rem;
+  text-align: center;
+  padding-top: 25px;
+  padding-right: 10px;
+}
+.selectQuiestion__select{
+  margin-top: 18px;
+  margin-inline: 10px;
+}
+.selectQuiestion__btn{
+  margin-top: 18px;
+  margin-inline: 10px;
+
+}
+.variant{
+  margin: 10px;
+}
