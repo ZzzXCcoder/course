@@ -1,0 +1,84 @@
+@if (quiz) {
+
+  <div class="quiz">
+
+    <h1 class="quiz__title">{{ quiz.name }}</h1>
+    <p class="quiz__description">{{ quiz.description }}</p>
+
+    <div class="quiz__items">
+
+      @for (item of quiz.items; track item.id) {
+
+        <div class="quiz-item">
+
+          <h3 class="quiz-item__title">
+            {{ item.title }}
+          </h3>
+
+          <p class="quiz-item__description">
+            {{ item.description }}
+          </p>
+
+          @switch (item.type) {
+
+            @case ('text') {
+              @if (!hideInputs) {
+                <input
+                  type="text"
+                  class="quiz-input"
+                  [placeholder]="item.placeholder"
+                  [disabled]='!isAnswering'
+                  [(ngModel)]="answers[item.id]"
+                />
+              }
+            }
+
+            @case ('range') {
+              @if (!hideInputs) {
+                <div class="range-wrapper">
+                  <span>{{ item.min }}</span>
+
+                  <input
+                    type="range"
+                    [min]="item.min"
+                    [max]="item.max"
+                    [disabled]='!isAnswering'
+                    [(ngModel)]="answers[item.id]"
+                  />
+
+                  <span>{{ item.max }}</span>
+                </div>
+              }
+            }
+
+            @case ('select') {
+              @if (!hideInputs) {
+                <select [disabled]='!isAnswering' [(ngModel)]="answers[item.id]">
+                  @for (opt of item.options; track opt) {
+                    <option>{{ opt }}</option>
+                  }
+                </select>
+              }
+            }
+
+          }
+
+        </div>
+
+      }
+
+    </div>
+
+  </div>
+  @if (!hideInputs){
+    @if (!isAnswering) {
+      <button (click)="isAnswering = true">Начать отвечать</button>
+    } @else if (isAnswering){
+      <button (click)="sendAnswers()">Отправить ответы</button>
+    }
+
+  }
+
+} @else {
+  <p>Загрузка...</p>
+}

@@ -1,0 +1,28 @@
+@if (answers && answers.length > 0) {
+
+  <div class="answers-container">
+
+    @for (answer of answers; track answer.id) {
+
+      <div class="answer-card">
+        <p><strong>Ответ пользователя:</strong> {{ answer.userId}}</p>
+
+        @for (ans of getAnswerValues(answer); track ans.key) {
+          <p>{{ ans.value }}</p>
+        }
+        <hr/>
+      </div>
+
+    }
+
+    @if (pageNumber < totalPages) {
+      <button (click)="loadNextPage()" [disabled]="loadingAnswers">
+        Загрузить ещё ответы
+      </button>
+    }
+
+  </div>
+
+} @else {
+  <p>Ответов пока нет.</p>
+}
