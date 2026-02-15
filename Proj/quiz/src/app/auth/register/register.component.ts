@@ -66,5 +66,9 @@ export class RegisterComponent {
       error: (err:any) => console.error(err)
     });
   }
+
+  protected redirectToLogin() {
+    this.router.navigate(['/login']);
+  }
 }
 

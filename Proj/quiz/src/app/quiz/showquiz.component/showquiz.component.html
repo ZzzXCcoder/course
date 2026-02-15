@@ -11,29 +11,41 @@
 
         <div class="quiz-item">
 
+          <!-- Общие поля -->
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+          <small>ID: {{ item.id }} | QuizId: {{ item.quizId }}</small>
+
           @switch (item.type) {
 
             @case ('text') {
               <label class="quiz-item__label">
                 Текстовый ответ
               </label>
+
               <input
                 type="text"
                 class="quiz-item__input"
-                [placeholder]="item.placeholder || 'Введите ответ'"
+                [placeholder]="item.placeholder"
               />
+
+              <p>Placeholder: {{ item.placeholder }}</p>
             }
 
             @case ('range') {
               <label class="quiz-item__label">
                 Оценка ({{ item.min }} – {{ item.max }})
               </label>
+
               <input
                 type="range"
                 class="quiz-item__range"
                 [min]="item.min"
                 [max]="item.max"
               />
+
+              <p>Min: {{ item.min }}</p>
+              <p>Max: {{ item.max }}</p>
             }
 
             @case ('select') {
@@ -46,6 +58,8 @@
                   <option [value]="opt">{{ opt }}</option>
                 }
               </select>
+
+              <p>Options: {{ item.options }}</p>
             }
 
           }

@@ -1,7 +1,8 @@
-  import { Component } from '@angular/core';
+  import {Component, inject} from '@angular/core';
   import {FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
   import {QuizItemRequest, QuizRequest, RangeItemRequest, SelectItemRequest, TextItemRequest} from '../Dto/create-quizRequestDto'
   import {QuizService} from '../quizService/quiz.service';
+  import {Router} from '@angular/router';
 
   @Component({
     selector: 'app-quiz',
@@ -12,7 +13,7 @@
   })
 
   export class CreateQuizComponent {
-
+    private router = inject(Router);
     typeToAdd : 'text' | 'range' | 'select' = 'text';
      wantAddQuestion : boolean = false;
      question : FormGroup;
@@ -111,6 +112,8 @@
 
              this.question.reset();
              alert('Готова')
+             this.router.navigate(['/showQuiz']);
+
            },
            error: (err) => {
              console.log(err);

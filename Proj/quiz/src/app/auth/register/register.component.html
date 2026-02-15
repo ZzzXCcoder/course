@@ -27,7 +27,8 @@
 
     <button (click)="submit()" type="submit" [disabled]="registerForm.invalid">Подтвердить</button>
     <div>
-      <h3>Уже имеете аккаунт? Войдите</h3>
+      <h3>Уже имеете аккаунт?</h3>
+      <label (click)="redirectToLogin()">Войдите</label>
       <p>Сюда надо вставить ссылку на логин</p>
     </div>
   </div>
