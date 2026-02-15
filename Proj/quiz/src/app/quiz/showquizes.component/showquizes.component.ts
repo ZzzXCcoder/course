@@ -66,7 +66,9 @@ export class ShowquizesComponent implements OnInit{
     this.dto.pageSize = this.size;
     this.loadQuizes();
   }
-  goToQuiz(id : number){
-    this.router.navigate([`/quiz/${id}`]);
+
+
+  protected showQuiz(id: number) {
+    this.router.navigate([`/quiz/view/${id}`]);
   }
 }

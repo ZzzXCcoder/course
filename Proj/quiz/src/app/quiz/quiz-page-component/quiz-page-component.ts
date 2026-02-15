@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ShowQuizAnswersComponent} from'../show-quizAnswers.component/show-quizAnswers.component';
 import {ShowquizSendAnswerComponent} from '../showquizSendAnswer.component/showquizSendAnswer.component';
 
@@ -16,9 +16,13 @@ import {ShowquizSendAnswerComponent} from '../showquizSendAnswer.component/showq
 export class QuizPageComponent implements OnInit {
   quizId: number = 0;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private routeTo:Router) {}
 
   ngOnInit(): void {
     this.quizId = Number(this.route.snapshot.paramMap.get('id'));
+  }
+
+  protected RedirectToAnswerQuiz() {
+    this.routeTo.navigate([`quiz/${this.quizId}`]);
   }
 }
