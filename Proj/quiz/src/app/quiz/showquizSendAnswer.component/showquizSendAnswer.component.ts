@@ -61,7 +61,7 @@ export class ShowquizSendAnswerComponent implements OnInit {
     this.answerQuizService.answerQuiz(answerReq).subscribe({
       next: result => {
         this.isAnswering = false;
-        this.navigateRouter.navigateByUrl('/Showquiz/' + this.quizId);
+        this.navigateRouter.navigateByUrl('/quiz/view/' + this.quizId);
       },
       error: err => {
         if (err.error?.message) {

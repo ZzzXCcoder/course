@@ -1,0 +1,87 @@
+/* Контейнер для списка ответов */
+.answers-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Карточка одного ответа */
+.answer-card {
+  border: 1px solid #d8d6ff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.03);
+  transition: box-shadow 0.2s;
+}
+
+.answer-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Строка с пользователем */
+.answer-user {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.user-id {
+  font-weight: 600;
+  color: var(--color-primary, #6c5ce7);
+}
+
+/* Текст ответа */
+.answer-text {
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  background-color: rgba(216, 214, 255, 0.1);
+  border-radius: 4px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* Разделитель между ответами (кроме последнего) */
+.answer-divider {
+  margin: 1rem 0 0;
+  border: none;
+  border-top: 1px dashed #d8d6ff;
+}
+
+/* Контейнер для кнопки загрузки */
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Стили для кнопки загрузки (наследует .button) */
+.load-more-wrapper .button {
+  min-width: 200px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.load-more-wrapper .button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Простой спиннер для состояния загрузки */
+.spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

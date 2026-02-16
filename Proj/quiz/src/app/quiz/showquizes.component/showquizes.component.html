@@ -1,35 +1,57 @@
-@for ( quiz of quizes; track quiz) {
-  <a>{{ quiz.name }}FFFFFFFFF</a>
-  <img src="https://us.123rf.com/450wm/georgepanfili/georgepanfili2003/georgepanfili200300803/148467237-quiz-logo-and-icon-vector-isolated-image.jpg?ver=6">
-  <h2>{{quiz.description}}</h2>
-  <button type="button" (click)="showQuiz(quiz.id)">Посмотреть квиз</button>
-  
-}
-
-
-
-
-
-<div>
-  <button type="button" (click)="prevPageNumber()"><</button>
+Сделал нейронкой эту страницу уже просто времени нет(
+<div class="quiz-grid">
+  @for (quiz of quizes; track quiz) {
+    <div class="quiz-card">
+      <a class="quiz-title">{{ quiz.name }}</a>
+      <img
+        class="quiz-image"
+        src="https://us.123rf.com/450wm/georgepanfili/georgepanfili2003/georgepanfili200300803/148467237-quiz-logo-and-icon-vector-isolated-image.jpg?ver=6"
+        alt="Quiz logo"
+      >
+      <h2 class="quiz-description">{{ quiz.description }}</h2>
+      <button
+        class="button"
+        type="button"
+        (click)="showQuiz(quiz.id)"
+      >
+        Посмотреть квиз
+      </button>
+    </div>
+  }
 </div>
 
-<div>
-  <label>{{dto?.pageNumber}}</label>
+
+<div class="pagination-controls">
+  <button
+    class="button"
+    type="button"
+    (click)="prevPageNumber()"
+    aria-label="Предыдущая страница"
+  >
+    &lt;
+  </button>
+
+  <span class="page-indicator">{{ dto?.pageNumber }}</span>
+
+  <button
+    class="button"
+    type="button"
+    (click)="nextPageNumber()"
+    aria-label="Следующая страница"
+  >
+    &gt;
+  </button>
+
+  <div class="page-size-selector">
+    <label for="pageSize" class="page-size-label">Размер страницы:</label>
+    <input
+      id="pageSize"
+      class="input"
+      type="number"
+      min="1"
+      [value]="dto.pageSize"
+      [(ngModel)]="size"
+      (change)="changePageSize()"
+    >
+  </div>
 </div>
-
-<div>
-  <button type="button" (click)="nextPageNumber()">></button>
-</div>
-
-
-<div>
-  <input
-    type="number"
-    min="1"
-    [value]="dto.pageSize"
-    [(ngModel)]="size"
-    (change)="changePageSize()"
-  />
-</div>
-

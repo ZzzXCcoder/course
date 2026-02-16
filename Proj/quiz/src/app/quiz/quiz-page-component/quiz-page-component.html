@@ -1,8 +1,10 @@
-<h2>Квиз</h2>
-<app-showquiz-component [quizId]="quizId" [hideInputs]="true"></app-showquiz-component>
-<button type="button" (click)="RedirectToAnswerQuiz()">Пройти квиз</button>
-<hr />
+нейроночка
+<div class="quiz-detail-page">
+  <app-showquiz-component [quizId]="quizId" [hideInputs]="true"></app-showquiz-component>
+  <button type="button" class="quiz-detail-page" (click)="RedirectToAnswerQuiz()">Пройти квиз</button>
 
-<h2>Ответы пользователей</h2>
+  <h2 class="section-title">Ответы пользователей</h2>
 
-<show-quizAnswers [quizId]="quizId"></show-quizAnswers>
+  <show-quizAnswers [quizId]="quizId"></show-quizAnswers>
+</div>
+

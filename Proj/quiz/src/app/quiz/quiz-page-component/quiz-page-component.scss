@@ -1,0 +1,18 @@
+.quiz-detail-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.quiz-detail-page button {
+  margin: 1.5rem 0;  /* отступы сверху и снизу */
+  width: auto;
+  min-width: 200px;   /* чтобы кнопка не была слишком узкой */
+}
+
+.quiz-detail-page .section-title {
+  margin: 2rem 0 1rem; /* отступ сверху больше, снизу меньше */
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--color-primary, #6c5ce7);
+  padding-bottom: 0.5rem;
+}

@@ -70,14 +70,17 @@
     </div>
 
   </div>
-  @if (!hideInputs){
-    @if (!isAnswering) {
-      <button (click)="isAnswering = true">Начать отвечать</button>
-    } @else if (isAnswering){
-      <button (click)="sendAnswers()">Отправить ответы</button>
-    }
+  <div class="btn">
+    @if (!hideInputs){
+      @if (!isAnswering) {
+        <button (click)="isAnswering = true">Начать отвечать</button>
+      } @else if (isAnswering){
+        <button (click)="sendAnswers()">Отправить ответы</button>
+      }
 
-  }
+    }
+  </div>
+
 
 } @else {
   <p>Загрузка...</p>
