@@ -62,4 +62,11 @@ Frontend development course covering HTML, CSS, JavaScript, TypeScript, and Angu
 
 ## License
 
+
+https://cloud.mail.ru/public/4Kye/JquBvV5SC Дотнет для работы
+
+https://cloud.mail.ru/public/7SBR/koMb7MZ1v Ангуляр проект для работы 
+
+https://cloud.mail.ru/public/Ytc4/L8ZvSFAuH Нод для работы
+
 MIT License - see [LICENSE](./LICENSE) file.
